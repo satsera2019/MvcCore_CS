@@ -3,8 +3,11 @@
 
 }
 <div style="width: 50%">
-    <form asp-action="AddPerson">
-        <h2>Add Person</h2>
+    <form asp-action="EditPerson">
+        <h2>Edit Person</h2>
+
+        <input type="hidden" asp-for="Id"/>
+
         <div class="mb-3">
             <label asp-for="Name" for="Name" class="form-label">Name</label>
             <input asp-for="Name" type="text" class="form-control" id="Name">
@@ -17,14 +20,14 @@
             <span class="text-danger" asp-validation-for="Email"></span>
         </div>
 
-        @if(TempData["msg"] != null)
+        @if (TempData["msg"] != null)
         {
             <div class="mb-3">
                 @TempData["msg"]
             </div>
         }
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/Person/DisplayPersons" class="btn btn-primary">All Person</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/Person/DisplayPersons" class="btn btn-primary">Back</a>
     </form>
 </div>
